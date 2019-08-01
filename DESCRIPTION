@@ -1,0 +1,15 @@
+Package: correttor
+Title: Cross-Platform Corretto Java Installer for R User
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Chanyub",
+           family = "Park",
+           role = c("aut", "cre"),
+           email = "mrchypark@gmail.com",
+           comment = c(ORCID = "0000-0001-6474-2570"))
+Description: Provides install function of corretto, one of the Java distributions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    sys
