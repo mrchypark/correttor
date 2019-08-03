@@ -48,9 +48,9 @@ crt_path.Darwinx64 <- function(os){
   fs::path("/Library/Java/JavaVirtualMachines/")
 }
 
-mklink <- function(link, target) {
-  R.utils::createLink(link, target, overwrite = T, methods = "windows-shortcut")
-}
+# mklink <- function(link, target) {
+#   R.utils::createLink(link, target, overwrite = T, methods = "windows-ntfs-symlink")
+# }
 # mklink(fs::path(crt_path(get_os()),"current"), fs::dir_ls(crt_path(get_os())))
 
 setx <- function(key = "", value = ""){
