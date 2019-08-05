@@ -14,11 +14,16 @@ crt_unc.Windowsx64 <- function(os, ...){
   zip::unzip(...)
 }
 
-# crt_unc.Darwinx64 <- function(os, dest){
-#  
-# }
+crt_unc.Darwinx64 <- function(os, file_path, exdir, ...){
+  untar(tarfile = file_path, exdir = exdir)
+}
 # 
 # crt_unc.Linuxx64 <- function(os, dest){
 #  
 # }
 # 
+
+ttt <- function(){
+  tem <- askpass::askpass()
+  system(paste0("echo ",tem," | sudo -S -k whoami"), intern = T)
+}

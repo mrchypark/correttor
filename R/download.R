@@ -30,18 +30,32 @@ crt_download.default <- function(os, ...){
 #' @importFrom rvest html_nodes html_attr
 #' @importFrom xml2 read_html
 download_links <- function(){
-  hobj <- xml2::read_html("https://docs.aws.amazon.com/ko_kr/corretto/latest/corretto-8-ug/downloads-list.html")
-  tnodes <- rvest::html_nodes(hobj, "p a")
-  links <- rvest::html_attr(tnodes, "href")
+  link8 <- download_link_8()
+  link11 <- download_link_11()
   return(
     switch(class(get_os()),
-    Darwinx64 = grep("(?=.*mac)(?=.*x64)(?=.*tar)", links, value = T, perl = T)[1],
-    Windowsx64 = grep("(?=.*win)(?=.*jdk)(?=.*x64)", links, value = T, perl = T)[1],
-    Windowsx86 = grep("(?=.*win)(?=.*jdk)(?=.*x86)", links, value = T, perl = T)[1],
+    Darwinx64 = grep("(?=.*mac)(?=.*x64)(?=.*pkg)", link11, value = T, perl = T)[1],
+    Windowsx64 = grep("(?=.*win)(?=.*jdk)(?=.*x64)", link11, value = T, perl = T)[1],
+    Windowsx86 = grep("(?=.*win)(?=.*jdk)(?=.*x86)", link8, value = T, perl = T)[1],
     message("not support os yet")
     )
   )
 }
+
+download_link_8 <- function(){
+  hobj <- xml2::read_html("https://docs.aws.amazon.com/ko_kr/corretto/latest/corretto-8-ug/downloads-list.html")
+  tnodes <- rvest::html_nodes(hobj, "p a")
+  links <- rvest::html_attr(tnodes, "href")
+  return(links)
+}
+
+download_link_11 <- function(){
+  hobj <- xml2::read_html("https://docs.aws.amazon.com/ko_kr/corretto/latest/corretto-11-ug/downloads-list.html")
+  tnodes <- rvest::html_nodes(hobj, "p a")
+  links <- rvest::html_attr(tnodes, "href")
+  return(links)
+}
+
 
 
 #' @importFrom fs path path_temp path_home
@@ -51,7 +65,7 @@ crt_dest_loc <- function() {
     class(os),
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
-    Darwinx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
+    Darwinx64 = fs::path(fs::path_temp(), "crt.pkg"),
     Linuxx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
     message("not support os yet")
   ))
