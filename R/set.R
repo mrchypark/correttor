@@ -22,7 +22,7 @@ set_java_home.Windowsx86 <- function(os, path = ""){
 
 set_java_home.Windowsx64 <- function(os, path = ""){
   if (path == "") {
-    path <- fs::path(crt_path(os), "current")
+    path <- fs::dir_ls(crt_path(os))[1]
   }
   setx("JAVA_HOME", path)
   message("You MUST restart rstudio for setting done.")

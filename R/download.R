@@ -1,4 +1,4 @@
-#' @importFrom utils download.files
+#' @importFrom utils download.file
 crt_download <- function(os, ...){
   UseMethod("crt_download")
 }
@@ -29,13 +29,13 @@ crt_download.default <- function(os, ...){
 
 #' @importFrom rvest html_nodes html_attr
 #' @importFrom xml2 read_html
-download_links <- function(){
+download_links <- function(os = class(get_os())){
   link8 <- download_link_8()
   link11 <- download_link_11()
   return(
-    switch(class(get_os()),
+    switch(os,
     Darwinx64 = grep("(?=.*mac)(?=.*x64)(?=.*pkg)", link11, value = T, perl = T)[1],
-    Windowsx64 = grep("(?=.*win)(?=.*jdk)(?=.*x64)", link11, value = T, perl = T)[1],
+    Windowsx64 = grep("(?=.*win)(?=.*x64)(?=.*zip)", link11, value = T, perl = T)[1],
     Windowsx86 = grep("(?=.*win)(?=.*jdk)(?=.*x86)", link8, value = T, perl = T)[1],
     message("not support os yet")
     )
