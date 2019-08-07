@@ -7,4 +7,3 @@ get_os <- function(){
   class(os) <- paste0(Sys.info()["sysname"], as.character(bits))
   return(os)
 }
-  

@@ -1,6 +1,9 @@
 # correttor
 
 <!-- badges: start -->
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mrchypark/correttor?branch=master&svg=true)](https://ci.appveyor.com/project/mrchypark/correttor)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis build status](https://travis-ci.org/mrchypark/correttor.svg?branch=master)](https://travis-ci.org/mrchypark/correttor)
 <!-- badges: end -->
 
 Corretto(which is one of java distro) Installer for R user
