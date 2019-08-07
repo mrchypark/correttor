@@ -6,6 +6,7 @@ crt_unc.default <- function(os){
   stop("no method for ", class(os)[1L])
 }
 
+#' @importFrom zip unzip
 crt_unc.Windowsx86 <- function(os, ...){
   zip::unzip(...)
 }
@@ -14,8 +15,9 @@ crt_unc.Windowsx64 <- function(os, ...){
   zip::unzip(...)
 }
 
+#' @importFrom utils untar
 crt_unc.Darwinx64 <- function(os, file_path, exdir, ...){
-  untar(tarfile = file_path, exdir = exdir)
+  utils::untar(tarfile = file_path, exdir = exdir)
 }
 # 
 # crt_unc.Linuxx64 <- function(os, dest){
