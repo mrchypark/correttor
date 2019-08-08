@@ -7,7 +7,7 @@ set_java_home.default <- function(os){
 }
 
 set_java_home.Darwinx64 <- function(os){
-  invisible(is)
+  invisible(os)
 }
 
 set_java_home.Windowsx86 <- function(os, path = "", command = ""){
