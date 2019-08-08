@@ -12,7 +12,7 @@ set_java_home.Darwinx64 <- function(os){
 
 #' @importFrom usethis write_union
 #' @importFrom fs path path_home_r
-set_java_home.Windowsx64 <- function(os, path = "", command = ""){
+set_java_home.Windowsx64 <- function(os, path = "", command){
   if (path == "") {
     path <- fs::dir_ls(crt_path(os))[1]
   }

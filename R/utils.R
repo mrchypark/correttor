@@ -12,3 +12,11 @@ system_sudo <- function(password, command){
   cmd <- paste0("echo ", password," | sudo -S ", command)
   system(cmd, ignore.stderr = T)
 }
+
+java_available <- function(){
+  sys::exec_wait("java", "-version", std_out = F, std_err = F)==0
+}
+
+java_home_check <- function(){
+  Sys.getenv("JAVA_HOME")!=""
+}
