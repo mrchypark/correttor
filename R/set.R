@@ -58,11 +58,6 @@ crt_path.Darwinx64 <- function(os){
   fs::path("/Library/Java/JavaVirtualMachines/")
 }
 
-# mklink <- function(link, target) {
-#   R.utils::createLink(link, target, overwrite = T, methods = "windows-ntfs-symlink")
-# }
-# mklink(fs::path(crt_path(get_os()),"current"), fs::dir_ls(crt_path(get_os())))
-
 setx <- function(key = "", value = ""){
   if (key != "" & value == "") {
     sys::exec_wait("setx", args = c(key))
@@ -70,10 +65,4 @@ setx <- function(key = "", value = ""){
     sys::exec_wait("setx", args = c(key, value))
   }
 }
-
-java_home_mac <- function(args = "") {
-  res <- sys::exec_wait("/usr/libexec/java_home", args = args)
-  invisible(res)
-}
-
 

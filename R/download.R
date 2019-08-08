@@ -9,6 +9,10 @@ crt_download <- function(os, ...){
   UseMethod("crt_download")
 }
 
+crt_download.default <- function(os, ...){
+  stop("no method for ", class(os)[1L])
+}
+
 crt_download.Windowsx86 <- function(os, dest = crt_dest_loc()){
   tar <- download_links()
   download.file(tar, destfile = dest, mode = "wb")
@@ -22,15 +26,6 @@ crt_download.Windowsx64 <- function(os, dest = crt_dest_loc()){
 crt_download.Darwinx64 <- function(os, dest = crt_dest_loc()){
   tar <- download_links()
   download.file(tar, destfile = dest)
-}
-
-crt_download.Linuxx64 <- function(os, dest = crt_dest_loc()){
-  tar <- download_links()
-  download.file(tar, destfile = dest)
-}
-
-crt_download.default <- function(os, ...){
-  stop("no method for ", class(os)[1L])
 }
 
 #' @importFrom rvest html_nodes html_attr
@@ -62,8 +57,6 @@ download_link_11 <- function(){
   return(links)
 }
 
-
-
 #' @importFrom fs path path_temp path_home
 crt_dest_loc <- function() {
   os <- get_os()
@@ -72,7 +65,6 @@ crt_dest_loc <- function() {
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
     Darwinx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
-    Linuxx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
     message("not support os yet")
   ))
 }
