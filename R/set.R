@@ -10,19 +10,6 @@ set_java_home.Darwinx64 <- function(os){
   invisible(os)
 }
 
-set_java_home.Windowsx86 <- function(os, path = "", command = ""){
-  if (path == "") {
-    path <- fs::dir_ls(crt_path(os))[1]
-  }
-  if (length(path) == 0) {
-    stop("There's empty. Please install java first.")
-  }
-  setx("JAVA_HOME", path)
-  forenvron <- paste0('JAVA_HOME=', path) 
-  usethis::write_union(fs::path(fs::path_home_r(), "/",ext = "Renviron"), forenvron)
-  rstudioapi::restartSession(command)
-}
-
 #' @importFrom usethis write_union
 #' @importFrom fs path path_home_r
 set_java_home.Windowsx64 <- function(os, path = "", command = ""){
@@ -32,11 +19,18 @@ set_java_home.Windowsx64 <- function(os, path = "", command = ""){
   if (length(path) == 0) {
     stop("There's empty. Please install java first.")
   }
-  setx("JAVA_HOME", path)
+  res <- setx("JAVA_HOME", path)
+  paths <- paste0("%JAVA_HOME%\\bin;", Sys.getenv("path"))
+  paths <- unique(strsplit(paths, ";")[[1]])
+  paths <- paths[nchar(paths)>0]
+  paths <- paste0(paths, collapse = ";")
+  res <- setx("path", paths)
   forenvron <- paste0('JAVA_HOME=', path) 
   usethis::write_union(fs::path(fs::path_home_r(), "/",ext = "Renviron"), forenvron)
   rstudioapi::restartSession(command)
 }
+
+set_java_home.Windowsx86 <- set_java_home.Windowsx64
 
 crt_path <- function(os) {
   UseMethod("crt_path")
@@ -59,10 +53,6 @@ crt_path.Darwinx64 <- function(os){
 }
 
 setx <- function(key = "", value = ""){
-  if (key != "" & value == "") {
-    sys::exec_wait("setx", args = c(key))
-  } else {
-    sys::exec_wait("setx", args = c(key, value))
-  }
+  sys::exec_wait("setx", args = c(key, value), std_out = F)
 }
 
