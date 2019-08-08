@@ -6,6 +6,10 @@ set_java_home.default <- function(os){
   stop("no method for ", class(os)[1L])
 }
 
+set_java_home.Darwinx64 <- function(os){
+  invisible(is)
+}
+
 set_java_home.Windowsx86 <- function(os, path = "", command = ""){
   if (path == "") {
     path <- fs::dir_ls(crt_path(os))[1]

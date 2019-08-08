@@ -15,7 +15,7 @@ dependency.Windowsx64 <- function(os){
 }
 
 dependency.Darwinx64 <- function(os){
-  invisible(os)
+  # "brew install llvm gcc"
 }
 
 dependency.Linuxx64 <- function(os){

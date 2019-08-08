@@ -40,7 +40,7 @@ download_links <- function(os = class(get_os())){
   link11 <- download_link_11()
   return(
     switch(os,
-    Darwinx64 = grep("(?=.*mac)(?=.*x64)(?=.*pkg)", link11, value = T, perl = T)[1],
+    Darwinx64 = grep("(?=.*mac)(?=.*x64)(?=.*tar)", link11, value = T, perl = T)[1],
     Windowsx64 = grep("(?=.*win)(?=.*x64)(?=.*zip)", link11, value = T, perl = T)[1],
     Windowsx86 = grep("(?=.*win)(?=.*jdk)(?=.*x86)", link8, value = T, perl = T)[1],
     message("not support os yet")
@@ -71,7 +71,7 @@ crt_dest_loc <- function() {
     class(os),
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
     Windowsx64 = fs::path(fs::path_temp(), "crt.zip"),
-    Darwinx64 = fs::path(fs::path_temp(), "crt.pkg"),
+    Darwinx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
     Linuxx64 = fs::path(fs::path_temp(), "crt.tar.gz"),
     message("not support os yet")
   ))

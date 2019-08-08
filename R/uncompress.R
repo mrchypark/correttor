@@ -16,9 +16,7 @@ crt_unc.Windowsx64 <- function(os, ...){
   zip::unzip(...)
 }
 
-# TODO
 crt_unc.Darwinx64 <- function(os, file_path, exdir, ...){
   tem <- askpass::askpass("Please enter your MacOS password for install java:")
-  system(paste0("echo ",tem," | sudo -S -k whoami"), intern = T)
-  # utils::untar(tarfile = file_path, exdir = exdir)
+  system(paste0("echo ",tem," | sudo -S tar -xvzf ", file_path, " -C ", exdir), intern = T)
 }
