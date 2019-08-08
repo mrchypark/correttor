@@ -3,7 +3,6 @@
 #' @export
 install_corretto <- function(){
   os <-  get_os()
-  dependency(os)
   dest <- crt_dest_loc()
   crt_download(os, dest)
   loc <- crt_path(os)

@@ -18,6 +18,5 @@ Imports:
     zip,
     askpass,
     xml2,
-    rvest,
-    rJava
+    rvest
 RoxygenNote: 6.1.1
