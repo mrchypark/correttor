@@ -1,5 +1,5 @@
 Package: correttor
-Title: Cross-Platform Corretto Java Installer for R User
+Title: Corretto Java Installer for R User
 Version: 0.0.1
 Authors@R: 
     person(given = "Chanyub",
@@ -8,6 +8,7 @@ Authors@R:
            email = "mrchypark@gmail.com",
            comment = c(ORCID = "0000-0001-6474-2570"))
 Description: Provides install function of corretto, one of the Java distributions.
+             Package scope is Windows & MacOS.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
