@@ -22,13 +22,13 @@ java_available <- function(os, ...){
   UseMethod("java_available")
 }
 
-java_available.Windowsx64 <- function(){
+java_available.Windowsx64 <- function(os){
   sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
 }
 
 java_available.Windowsx86 <- java_available.Windowsx64
 
-java_available.Darwinx64 <- function() {
+java_available.Darwinx64 <- function(os) {
   sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
 }
 
