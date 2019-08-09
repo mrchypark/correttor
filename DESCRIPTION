@@ -19,5 +19,6 @@ Imports:
     zip,
     askpass,
     xml2,
-    rvest
+    rvest,
+    rstudioapi
 RoxygenNote: 6.1.1

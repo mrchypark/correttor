@@ -13,11 +13,11 @@ system_sudo <- function(password, command){
   system(cmd, ignore.stderr = T)
 }
 
+#' java available check
+#' 
+#' @param os system os
+#' @param ... extra param
 #' @export
-java_available <- function(){
-  sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
-}
-
 java_available <- function(os, ...){
   UseMethod("java_available")
 }
@@ -32,17 +32,20 @@ java_available.Darwinx64 <- function() {
   sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
 }
 
+#' java home check
+#' 
+#' @param os system os
 #' @export
-java_home_check <- function(){
+java_home_check <- function(os){
   UseMethod("java_home_check")
 }
 
-java_home_check.Windowsx64 <- function(){
+java_home_check.Windowsx64 <- function(os){
   Sys.getenv("JAVA_HOME") != ""
 }
 
 java_home_check.Windowsx86 <- java_home_check.Windowsx64
 
-java_home_check.Darwinx64 <- function() {
+java_home_check.Darwinx64 <- function(os) {
   sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
 }

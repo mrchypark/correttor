@@ -6,6 +6,11 @@
 \usage{
 crt_unc(os, ...)
 }
+\arguments{
+\item{os}{system os}
+
+\item{...}{extra param}
+}
 \description{
 uncompress corretto source
 }

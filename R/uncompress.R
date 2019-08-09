@@ -1,6 +1,8 @@
 
 #' uncompress corretto source
 #' 
+#' @param os system os
+#' @param ... extra param
 #' @export
 crt_unc <- function(os, ...){
   UseMethod("crt_unc")

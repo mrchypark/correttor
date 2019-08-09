@@ -6,6 +6,7 @@ set_java_home.default <- function(os) {
   stop("no method for ", class(os)[1L])
 }
 
+#' @importFrom rstudioapi restartSession 
 set_java_home.Darwinx64 <- function(os, command) {
   rstudioapi::restartSession(command)
   invisible(os)
