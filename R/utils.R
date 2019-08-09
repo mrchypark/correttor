@@ -16,24 +16,15 @@ system_sudo <- function(password, command){
 #' java available check
 #' 
 #' @param os system os
-#' @export
-java_available <- function(os){
-  UseMethod("java_available")
-}
-
-java_available.default <- function(os){
-  stop("no method for ", class(os)[1L])
-}
-
 #' @importFrom sys exec_wait
-java_available.Windowsx64 <- function(os){
-  sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
-}
-
-java_available.Windowsx86 <- java_available.Windowsx64
-
-java_available.Darwinx64 <- function(os) {
-  sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
+#' @export
+java_available <- function(){
+  os <- class(get_os())
+  switch(os,
+    Darwinx64 = sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0, 
+    Windowsx64 = sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0,
+    Windowsx86 = sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
+  )
 }
 
 #' java home check
