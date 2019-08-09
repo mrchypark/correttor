@@ -22,8 +22,8 @@ java_available <- function(){
   os <- class(get_os())
   switch(os,
     Darwinx64 = sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0, 
-    Windowsx64 = sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0,
-    Windowsx86 = sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
+    Windowsx64 = system("java -version") == 0,
+    Windowsx86 = system("java -version") == 0
   )
 }
 
