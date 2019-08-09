@@ -7,5 +7,5 @@ install_corretto <- function(){
   crt_download(os, dest)
   loc <- crt_path(os)
   crt_unc(os, dest, exdir = loc)
-  set_java_home(os, "install.packages('rJava', type = 'binary');library(rJava);.jinit()")
+  set_java_home(os, "install.packages('rJava', type = 'binary');library(rJava);.jinit();rstudioapi::restartSession()")
 }
