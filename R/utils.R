@@ -16,12 +16,16 @@ system_sudo <- function(password, command){
 #' java available check
 #' 
 #' @param os system os
-#' @param ... extra param
 #' @export
-java_available <- function(os, ...){
+java_available <- function(os){
   UseMethod("java_available")
 }
 
+java_available.default <- function(os){
+  stop("no method for ", class(os)[1L])
+}
+
+#' @importFrom sys exec_wait
 java_available.Windowsx64 <- function(os){
   sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
 }
