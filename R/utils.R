@@ -13,10 +13,12 @@ system_sudo <- function(password, command){
   system(cmd, ignore.stderr = T)
 }
 
+#' @export
 java_available <- function(){
-  sys::exec_wait("java", "-version", std_out = F, std_err = F)==0
+  sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
 }
 
+#' @export
 java_home_check <- function(){
-  Sys.getenv("JAVA_HOME")!=""
+  Sys.getenv("JAVA_HOME") != ""
 }
