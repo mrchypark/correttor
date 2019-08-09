@@ -18,6 +18,16 @@ java_available <- function(){
   sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
 }
 
+java_available <- function(os, ...){
+  UseMethod("java_available")
+}
+
+java_available.Windowsx64 <- function(){
+  sys::exec_wait("java", "-version", std_out = F, std_err = F) == 0
+}
+
+java_available.Windowsx86 <- java_available.Windowsx64
+
 #' @export
 java_home_check <- function(){
   UseMethod("java_home_check")
