@@ -1,4 +1,4 @@
-# correttor
+# correttor <img src="man/figures/logo.png" align="right" height=140/>
 
 <!-- badges: start -->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mrchypark/correttor?branch=master&svg=true)](https://ci.appveyor.com/project/mrchypark/correttor)
