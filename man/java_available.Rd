@@ -4,12 +4,10 @@
 \alias{java_available}
 \title{java available check}
 \usage{
-java_available(os, ...)
+java_available()
 }
 \arguments{
 \item{os}{system os}
-
-\item{...}{extra param}
 }
 \description{
 java available check

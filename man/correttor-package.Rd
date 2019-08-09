@@ -6,6 +6,8 @@
 \alias{correttor-package}
 \title{correttor: Corretto Java Installer for R User}
 \description{
+\if{html}{\figure{logo.png}{options: align='right'}}
+
 Provides install function of corretto, one of the Java distributions.
              Package scope is Windows & MacOS.
 }
