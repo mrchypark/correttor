@@ -4,9 +4,10 @@
 \name{correttor-package}
 \alias{correttor}
 \alias{correttor-package}
-\title{correttor: Cross-Platform Corretto Java Installer for R User}
+\title{correttor: Corretto Java Installer for R User}
 \description{
 Provides install function of corretto, one of the Java distributions.
+             Package scope is Windows & MacOS.
 }
 \author{
 \strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com} (0000-0001-6474-2570)

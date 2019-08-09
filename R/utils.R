@@ -28,6 +28,10 @@ java_available.Windowsx64 <- function(){
 
 java_available.Windowsx86 <- java_available.Windowsx64
 
+java_available.Darwinx64 <- function() {
+  sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
+}
+
 #' @export
 java_home_check <- function(){
   UseMethod("java_home_check")

@@ -4,7 +4,12 @@
 \alias{crt_download}
 \title{corretto installer download}
 \usage{
-crt_download(os, ...)
+crt_download(os, dest)
+}
+\arguments{
+\item{os}{Type of OS}
+
+\item{dest}{where to download}
 }
 \description{
 windows x64 is for java11 x64

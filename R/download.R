@@ -3,13 +3,15 @@
 #' windows x64 is for java11 x64
 #' windows x86 is for java8 x86
 #' 
+#' @param os Type of OS
+#' @param dest where to download
 #' @importFrom utils download.file
 #' @export
-crt_download <- function(os, ...){
+crt_download <- function(os, dest){
   UseMethod("crt_download")
 }
 
-crt_download.default <- function(os, ...){
+crt_download.default <- function(os){
   stop("no method for ", class(os)[1L])
 }
 
