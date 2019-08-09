@@ -20,5 +20,15 @@ java_available <- function(){
 
 #' @export
 java_home_check <- function(){
+  UseMethod("java_home_check")
+}
+
+java_home_check.Windowsx64 <- function(){
   Sys.getenv("JAVA_HOME") != ""
+}
+
+java_home_check.Windowsx86 <- java_home_check.Windowsx64
+
+java_home_check.Darwinx64 <- function() {
+  sys::exec_wait("/usr/libexec/java_home", "-V", std_out = F, std_err = F) == 0
 }
