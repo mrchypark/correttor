@@ -1,6 +1,6 @@
 Package: correttor
 Title: Corretto Java Installer for R User
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Chanyub",
            family = "Park",
