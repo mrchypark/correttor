@@ -1,5 +1,7 @@
 # correttor 0.0.3
 
+* Add check logic password corret for MacOS
+
 # correttor 0.0.2
 
 * Fix error which is command to path.
