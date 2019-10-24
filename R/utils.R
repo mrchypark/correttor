@@ -13,9 +13,13 @@ system_sudo <- function(password, command){
   system(cmd, ignore.stderr = T)
 }
 
+system_sudo_chk <- function(password, command){
+  cmd <- paste0("echo ", password," | sudo -S ", command)
+  system(cmd, ignore.stderr = T)
+}
+
 #' java available check
 #' 
-#' @param os system os
 #' @importFrom sys exec_wait
 #' @export
 java_available <- function(){

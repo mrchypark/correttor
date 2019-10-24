@@ -25,7 +25,17 @@ crt_unc.Windowsx64 <- function(os, ...){
 #' @importFrom fs path
 crt_unc.Darwinx64 <- function(os, file_path, exdir, ...){
   pw <- askpass::askpass("Please enter your MacOS password for install java:")
-
+  chk <- system_sudo_chk(pw, "echo") == 0
+  while (!chk) {
+    print("Incorrect Password.")
+    pw <- askpass::askpass("Please enter EXACT MacOS password:")
+    if (is.null(pw)) {
+      break
+    }
+    chk <- system_sudo_chk(pw, "echo") == 0
+  }
+  
+  system_sudo(pw, paste0("rm -rf ", exdir,"/*"))
   system_sudo(pw, paste0("tar -xvzf ", file_path, " -C ", exdir))
 
   from <- fs::path(exdir, dir(exdir))

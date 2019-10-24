@@ -6,9 +6,6 @@
 \usage{
 java_available()
 }
-\arguments{
-\item{os}{system os}
-}
 \description{
 java available check
 }
