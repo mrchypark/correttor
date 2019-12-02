@@ -1,8 +1,10 @@
 # correttor 0.0.4
 
+* Add example.
+
 # correttor 0.0.3
 
-* Add check logic password corret for MacOS
+* Add check logic password corret for MacOS.
 
 # correttor 0.0.2
 
