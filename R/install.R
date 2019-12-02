@@ -1,6 +1,10 @@
 #' install corretto
 #' 
 #' @export
+#' @example 
+#' \donttest{
+#'   install_corretto()
+#' }
 install_corretto <- function(){
   os <-  get_os()
   dest <- crt_dest_loc()
