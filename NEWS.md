@@ -1,3 +1,5 @@
+# correttor 0.0.4
+
 # correttor 0.0.3
 
 * Add check logic password corret for MacOS
