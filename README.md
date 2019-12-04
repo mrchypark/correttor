@@ -1,3 +1,6 @@
+# PLZ USE <https://github.com/mrchypark/multilinguer>
+
+
 # correttor <img src="man/figures/logo.png" align="right" height=140/>
 
 <!-- badges: start -->
